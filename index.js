@@ -36,9 +36,13 @@ let persons = [{
 // express version
 
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 
 app.use(express.json())
+// step 3.7
+app.use(morgan("tiny"));
+
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
