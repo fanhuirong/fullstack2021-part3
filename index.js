@@ -41,7 +41,17 @@ const app = express()
 
 app.use(express.json())
 // step 3.7
-app.use(morgan("tiny"));
+// app.use(morgan("tiny"));
+
+// step 3.8
+morgan.token("content", (req, res) => {
+  return JSON.stringify(req.body);
+});
+app.use(
+  morgan(
+    ":method :url :status :res[content-length] - :response-time ms :content"
+  )
+);
 
 
 app.get('/', (req, res) => {
