@@ -42,12 +42,26 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
 
+// step 3.1
 app.get('/api/persons', (req, res) => {
   res.json(persons)
 })
 
+// step 3.2
 app.get('/info', (req, res) => {
   res.send(`<p>Photobook has info for ${persons.length} people</p> <br> ${new Date()}`)
+})
+
+// step 3.3
+app.get('/api/persons/:id', (request, response) => {
+  const id = Number(request.params.id)
+  const person = persons.find(item => item.id === id)
+
+  if (person) {
+    response.json(person)
+  } else {
+    response.status(404).end()
+  }
 })
 
 const PORT = 3001
