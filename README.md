@@ -24,7 +24,21 @@ package.json
 `npm run dev` 启动
 
 
+## express
 
+### get
+`app.get(url, (res, req) => {})`
+
+### delete
+`app.delete(url, (res, req) => {})`
+
+### post
+```
+app.use(express.json()) // 事件处理函数可以从request 对象的body 属性访问数据。
+app.post('/api/persons', (request, response) => {
+  const person = request.body
+})
+```
 
 
 
