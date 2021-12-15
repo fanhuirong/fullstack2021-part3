@@ -1,4 +1,4 @@
-const persons = [{
+let persons = [{
     "id": 1,
     "name": "Arto Hellas",
     "number": "040-123456"
@@ -62,6 +62,14 @@ app.get('/api/persons/:id', (request, response) => {
   } else {
     response.status(404).end()
   }
+})
+
+// step 3.4 test with postman
+app.delete('/api/persons/:id', (request, response) => {
+  const id = Number(request.params.id)
+  persons = persons.filter(item => item.id !== id)
+
+  response.status(204).end()
 })
 
 const PORT = 3001
