@@ -70,3 +70,5 @@ https://safe-eyrie-44754.herokuapp.com/ | https://git.heroku.com/safe-eyrie-4475
 https://safe-eyrie-44754.herokuapp.com/
 
 就能看到页面内容
+
+## postman 测试部署后的接口
