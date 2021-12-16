@@ -50,8 +50,14 @@ app.post('/api/persons', (request, response) => {
 
 ```
 
+## cors
+`npm install cors`
 
+## heroku 部署
+`heroku create   `
 
+Creating app... done, ⬢ safe-eyrie-44754
+https://safe-eyrie-44754.herokuapp.com/ | https://git.heroku.com/safe-eyrie-44754.git
 
-
+`git push https://git.heroku.com/safe-eyrie-44754.git main`
 
