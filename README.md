@@ -63,3 +63,10 @@ https://safe-eyrie-44754.herokuapp.com/ | https://git.heroku.com/safe-eyrie-4475
 
 ## 移动前端生成到build文件
 `cp -r build ../../fullstack2021-part3`
+
+重新 push 到heroku仓库后
+
+访问
+https://safe-eyrie-44754.herokuapp.com/
+
+就能看到页面内容
