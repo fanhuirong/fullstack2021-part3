@@ -61,3 +61,5 @@ https://safe-eyrie-44754.herokuapp.com/ | https://git.heroku.com/safe-eyrie-4475
 
 `git push https://git.heroku.com/safe-eyrie-44754.git main`
 
+## 移动前端生成到build文件
+`cp -r build ../../fullstack2021-part3`

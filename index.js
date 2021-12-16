@@ -43,6 +43,7 @@ const cors = require('cors')
 // fix cors
 app.use(cors())
 app.use(express.json())
+app.use(express.static('build'))
 // step 3.7
 // app.use(morgan("tiny"));
 
