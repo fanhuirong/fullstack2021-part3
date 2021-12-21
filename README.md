@@ -72,3 +72,6 @@ https://safe-eyrie-44754.herokuapp.com/
 就能看到页面内容
 
 ## postman 测试部署后的接口
+
+## mongoose 远程数据库
+`npm install mongoose`
