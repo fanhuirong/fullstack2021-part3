@@ -78,3 +78,18 @@ https://safe-eyrie-44754.herokuapp.com/
 
 ## 获取命令行参数
 `process.argv` 
+
+## dotenv 环境变量配置
+  ```
+    require('dotenv').config()
+    const express = require('express')
+    const app = express()
+    const Note = require('./models/note')
+
+    // ..
+
+    const PORT = process.env.PORT
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`)
+    })
+  ```

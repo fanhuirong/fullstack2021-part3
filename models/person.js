@@ -1,3 +1,4 @@
+// step 3.12
 const mongoose = require('mongoose')
 
 const url = process.env.MONGODB_URI
