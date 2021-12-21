@@ -75,3 +75,6 @@ https://safe-eyrie-44754.herokuapp.com/
 
 ## mongoose 远程数据库
 `npm install mongoose`
+
+## 获取命令行参数
+`process.argv` 
