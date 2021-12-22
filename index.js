@@ -60,28 +60,19 @@ app.delete('/api/persons/:id', (request, response) => {
 })
 
 // step 3.17 update
-// app.put('/api/persons/:id', (request, response, next) => {
-//   const body = request.body
+app.put('/api/persons/:id', (request, response, next) => {
+  const body = request.body
 
-//   const person = new Person({
-//     ...body,
-//   })
-
-//   Person.findByIdAndUpdate(request.params.id, person, {
-//       new: true
-//     })
-//     .then((updatedPerson) => {
-//       response.json(updatedPerson);
-//     })
-//     .catch((error) => next(error));
-// })
-// step 3.17 update
-app.put("/api/persons/:id", (request, response, next) => {
-  const body = request.body;
+  // const person = new Person({
+  //   ...body // 会带上_id 导致修改错误 
+  // })
+  
   const person = {
     name: body.name,
     number: body.number,
   };
+  console.log(person)
+
   Person.findByIdAndUpdate(request.params.id, person, {
       new: true
     })
@@ -89,7 +80,7 @@ app.put("/api/persons/:id", (request, response, next) => {
       response.json(updatedPerson);
     })
     .catch((error) => next(error));
-});
+})
 
 // step 3.16 error 
 const unknownEndpoint = (request, response) => {
