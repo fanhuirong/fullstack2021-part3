@@ -97,3 +97,5 @@ https://safe-eyrie-44754.herokuapp.com/
 `find()`
 
 `findByIdAndRemove()`
+
+`findByIdAndUpdate()`

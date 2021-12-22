@@ -30,7 +30,7 @@ app.get('/api/persons', (req, res) => {
   })
 })
 
-// step 3.14
+// step 3.14 add
 app.post('/api/persons', (request, response) => {
   const body = request.body
 
@@ -44,6 +44,7 @@ app.post('/api/persons', (request, response) => {
     ...body,
   })
 
+  // 这里是小写的实例对象
   person.save().then(savedPerson => {
     response.json(savedPerson)
   })
@@ -58,7 +59,39 @@ app.delete('/api/persons/:id', (request, response) => {
     .catch((error) => next(error));
 })
 
-// step 3.16
+// step 3.17 update
+// app.put('/api/persons/:id', (request, response, next) => {
+//   const body = request.body
+
+//   const person = new Person({
+//     ...body,
+//   })
+
+//   Person.findByIdAndUpdate(request.params.id, person, {
+//       new: true
+//     })
+//     .then((updatedPerson) => {
+//       response.json(updatedPerson);
+//     })
+//     .catch((error) => next(error));
+// })
+// step 3.17 update
+app.put("/api/persons/:id", (request, response, next) => {
+  const body = request.body;
+  const person = {
+    name: body.name,
+    number: body.number,
+  };
+  Person.findByIdAndUpdate(request.params.id, person, {
+      new: true
+    })
+    .then((updatedPerson) => {
+      response.json(updatedPerson);
+    })
+    .catch((error) => next(error));
+});
+
+// step 3.16 error 
 const unknownEndpoint = (request, response) => {
   response.status(404).send({
     error: "unknown endpoint"
