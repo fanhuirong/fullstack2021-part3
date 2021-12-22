@@ -36,6 +36,15 @@ app.post('/api/persons', (request, response) => {
   })
 })
 
+// step 3.15 delete
+app.delete('/api/persons/:id', (request, response) => {
+  Person.findByIdAndRemove(request.params.id)
+    .then(result => {
+      response.status(204).end()
+    })
+    .catch(error => console.log(error))
+})
+
 const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)

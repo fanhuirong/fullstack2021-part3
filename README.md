@@ -93,3 +93,7 @@ https://safe-eyrie-44754.herokuapp.com/
       console.log(`Server running on port ${PORT}`)
     })
   ```
+## db 方法
+`find()`
+
+`findByIdAndRemove()`
