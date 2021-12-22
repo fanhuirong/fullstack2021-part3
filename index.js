@@ -10,6 +10,19 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static('build'))
 
+const errorHandler = (error, request, response, next) => {
+  console.error(error.message)
+
+  if (error.name === 'CastError' && error.kind === 'ObjectId') {
+    return response.status(400).send({
+      error: 'malformatted id'
+    })
+  }
+
+  next(error)
+}
+
+
 // step 3.13
 app.get('/api/persons', (req, res) => {
   Person.find({}).then(persons => {
@@ -42,8 +55,19 @@ app.delete('/api/persons/:id', (request, response) => {
     .then(result => {
       response.status(204).end()
     })
-    .catch(error => console.log(error))
+    .catch((error) => next(error));
 })
+
+// step 3.16
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({
+    error: "unknown endpoint"
+  });
+};
+// handler of requests with unknown endpoint
+app.use(unknownEndpoint);
+// error handler
+app.use(errorHandler);
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
