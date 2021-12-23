@@ -1,4 +1,16 @@
 const mongoose = require('mongoose')
+// step 3.19
+const uniqueValidator = require('mongoose-unique-validator');
+
+const personSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true, 
+    unique: true
+  }
+});
+
+personSchema.plugin(uniqueValidator);
 
 if (process.argv.length < 3) {
   console.log('Please provide the password as an argument: node mongo.js <password> <name> <number>')

@@ -1,4 +1,3 @@
-
 require('dotenv').config()
 const express = require('express')
 const app = express()
@@ -45,9 +44,14 @@ app.post('/api/persons', (request, response) => {
   })
 
   // 这里是小写的实例对象
-  person.save().then(savedPerson => {
-    response.json(savedPerson)
-  })
+  // step 3.19
+  person.save((err) => console.log(err)).then(savedPerson => {
+      response.json(savedPerson)
+    })
+    .catch(error => {
+      // this is the way to access the error message
+      console.log(error.response.data)
+    })
 })
 
 // step 3.15 delete
@@ -60,27 +64,27 @@ app.delete('/api/persons/:id', (request, response) => {
 })
 
 // step 3.17 update
-app.put('/api/persons/:id', (request, response, next) => {
-  const body = request.body
+// app.put('/api/persons/:id', (request, response, next) => {
+//   const body = request.body
 
-  // const person = new Person({
-  //   ...body // 会带上_id 导致修改错误 
-  // })
-  
-  const person = {
-    name: body.name,
-    number: body.number,
-  };
-  console.log(person)
+//   // const person = new Person({
+//   //   ...body // 会带上_id 导致修改错误 
+//   // })
 
-  Person.findByIdAndUpdate(request.params.id, person, {
-      new: true
-    })
-    .then((updatedPerson) => {
-      response.json(updatedPerson);
-    })
-    .catch((error) => next(error));
-})
+//   const person = {
+//     name: body.name,
+//     number: body.number,
+//   };
+//   console.log(person)
+
+//   Person.findByIdAndUpdate(request.params.id, person, {
+//       new: true
+//     })
+//     .then((updatedPerson) => {
+//       response.json(updatedPerson);
+//     })
+//     .catch((error) => next(error));
+// })
 
 // step 3.16 error 
 const unknownEndpoint = (request, response) => {

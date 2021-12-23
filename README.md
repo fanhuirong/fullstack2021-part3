@@ -104,3 +104,12 @@ https://safe-eyrie-44754.herokuapp.com/
 `npm install eslint --save-dev`
 
 `npx eslint --init`
+
+## 数据库部署到线上
+`heroku config:set MONGODB_URI='mongodb://fullstackxxxxxxxxx'`
+
+## 数据validate
+`yarn add mongoose-unique-validator`
+or
+
+`npm install --save mongoose-unique-validator`
