@@ -52,7 +52,7 @@ app.post('/api/persons', (request, response) => {
       // this is the way to access the error message
       console.log(error)
       return response.status(400).json({
-        error: 'name not unique'
+        error: 'name not unique！'
       })
     })
 })
