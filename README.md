@@ -99,3 +99,8 @@ https://safe-eyrie-44754.herokuapp.com/
 `findByIdAndRemove()`
 
 `findByIdAndUpdate()`
+
+## lint
+`npm install eslint --save-dev`
+
+`npx eslint --init`
