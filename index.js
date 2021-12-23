@@ -45,12 +45,15 @@ app.post('/api/persons', (request, response) => {
 
   // 这里是小写的实例对象
   // step 3.19
-  person.save((err) => console.log(err)).then(savedPerson => {
+  person.save().then(savedPerson => {
       response.json(savedPerson)
     })
     .catch(error => {
       // this is the way to access the error message
-      console.log(error.response.data)
+      console.log(error)
+      return response.status(400).json({
+        error: 'name not unique'
+      })
     })
 })
 

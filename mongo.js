@@ -1,16 +1,5 @@
 const mongoose = require('mongoose')
-// step 3.19
-const uniqueValidator = require('mongoose-unique-validator');
 
-const personSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true, 
-    unique: true
-  }
-});
-
-personSchema.plugin(uniqueValidator);
 
 if (process.argv.length < 3) {
   console.log('Please provide the password as an argument: node mongo.js <password> <name> <number>')
@@ -27,20 +16,11 @@ const url =
 
 mongoose.connect(url)
 
-const phoneSchema = new mongoose.Schema({
-  name: String,
-  number: String,
-})
 
-const Person = mongoose.model('Person', phoneSchema)
 
-const person = new Person({
-  name,
-  number,
-})
 
 // 保存
-person.save().then(result => {
-  console.log(`added ${name} number ${number} to phonebook`)
-  mongoose.connection.close()
-})
+// person.save().then(result => {
+//   console.log(`added ${name} number ${number} to phonebook`)
+//   mongoose.connection.close()
+// })
