@@ -1,0 +1,10 @@
+{
+  "workbench.colorTheme": "Visual Studio Dark",
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  // Specifies the location of snippets in the suggestion widget
+  "editor.snippetSuggestions": "top",
+  // Controls whether format on paste is on or off
+  "editor.formatOnPaste": true,
+  "window.zoomLevel": 1
+}

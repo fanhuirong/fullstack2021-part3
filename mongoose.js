@@ -28,10 +28,10 @@ const note = new Note({
 })
 
 // 保存
-// note.save().then(result => {
-//   console.log('note saved!')
-//   mongoose.connection.close()
-// })
+note.save().then(result => {
+  console.log('note saved!')
+  mongoose.connection.close()
+})
 
 // 查找
 Note.find({important:true}).then(result => {
